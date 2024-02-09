@@ -1,0 +1,3 @@
+[submodule "external/PatternLanguage"]
+	path = external/PatternLanguage
+	url = https://github.com/WerWolv/PatternLanguage.git
