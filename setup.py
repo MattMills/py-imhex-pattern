@@ -1,7 +1,4 @@
 from setuptools import setup, Extension
-from Cython.Build import cythonize
-import os
-
 import os
 
 if os.name == 'nt':
@@ -9,12 +6,11 @@ if os.name == 'nt':
 else:
     compiler_args = ['-std=c++23', '-Wno-stringop-overflow', '-Wno-dangling-reference',  '-fexceptions', '-frtti']
 
-print(os.name)
 
 extensions = [
     Extension(
-        '_patternlanguage',
-        sources=['swig/patternlanguage_wrap.cxx', ],
+        'py-imhex-pattern',
+        sources=['cpp/py-imhex-pattern.cpp', ],
         include_dirs=[
             "./cpp", 
             "external/PatternLanguage/lib/include/", 
@@ -25,8 +21,7 @@ extensions = [
             "external/PatternLanguage/external/libwolv/libs/types/include",
             ],  
         language="c++",
-        extra_compile_args=compiler_args, #windows: /std:c++20
-        #extra_link_args=["-std=c++23"],
+        extra_compile_args=compiler_args, 
     ),
 ]
 
